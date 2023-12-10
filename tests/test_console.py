@@ -1,29 +1,26 @@
 #!/usr/bin/python3
-'''This is the comment I Have to write'''
-
+"""Test for the console"""
 
 import unittest
 import console
 from console import HBNBCommand
 
 
-
 class test_console(unittest.TestCase):
-    '''This is the comment I Have to write'''
-
+    """class test console"""
 
     def create(self):
-        '''This is the comment I Have to write'''
+        """create the intance"""
         return HBNBCommand()
 
-
     def test_quit(self):
-        '''This is the comment I Have to write'''
+        """ test for the method quit
+        """
         con = self.create()
         self.assertTrue(con.onecmd("quit"))
 
-
     def test_EOF(self):
-        '''This is the comment I Have to write'''
+        """test for the method EQF
+        """
         con = self.create()
         self.assertTrue(con.onecmd("EOF"))

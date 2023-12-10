@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''This is the comment I Have to write'''
+"""Test case FileStorage module"""
 import unittest
 import os
 import contextlib
@@ -19,16 +19,16 @@ from models.user import User
 
 
 class TestFileStorage(unittest.TestCase):
-    '''This is the comment I Have to write'''
+    """Test FileStorage"""
 
     def test_pep8_FileStorage(self):
-        '''This is the comment I Have to write'''
+        """Tests pep8 style"""
         style = pep8.StyleGuide(quiet=True)
         p = style.check_files(['models/engine/file_storage.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def setUp(self):
-        '''This is the comment I Have to write'''
+        """Sets up the class test"""
 
         self.b1 = BaseModel()
         self.a1 = Amenity()
@@ -45,7 +45,7 @@ class TestFileStorage(unittest.TestCase):
             os.mknod("file.json")
 
     def tearDown(self):
-        '''This is the comment I Have to write'''
+        """Tears down the testing environment"""
 
         del self.b1
         del self.a1
@@ -59,24 +59,24 @@ class TestFileStorage(unittest.TestCase):
             os.remove("file.json")
 
     def test_all(self):
-        '''This is the comment I Have to write'''
+        """Check the all"""
         obj = self.storage.all()
         self.assertIsNotNone(obj)
         self.assertEqual(type(obj), dict)
         self.assertIs(obj, self.storage._FileStorage__objects)
 
     def test_storage_empty(self):
-        '''This is the comment I Have to write'''
+        """check the storage is not empty"""
 
         self.assertIsNotNone(self.storage.all())
 
     def test_storage_all_type(self):
-        '''This is the comment I Have to write'''
+        """check the type of storage"""
 
         self.assertEqual(dict, type(self.storage.all()))
 
     def test_new(self):
-        '''This is the comment I Have to write'''
+        """check the new user"""
         obj = self.storage.all()
         self.u1.id = 1234
         self.u1.name = "Julien"
@@ -85,7 +85,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertIsNotNone(obj[key])
 
     def test_check_json_loading(self):
-        '''This is the comment I Have to write'''
+        """ Checks if methods from Storage Engine works."""
 
         with open("file.json") as f:
             dic = json.load(f)
@@ -93,13 +93,15 @@ class TestFileStorage(unittest.TestCase):
             self.assertEqual(isinstance(dic, dict), True)
 
     def test_file_existence(self):
-        '''This is the comment I Have to write'''
+        """
+        Checks if methods from Storage Engine works.
+        """
 
         with open("file.json") as f:
             self.assertTrue(len(f.read()) > 0)
 
     def test_docstrings(self):
-        '''This is the comment I Have to write'''
+        """Check the docString each function"""
 
         self.assertTrue(FileStorage.all.__doc__)
         self.assertTrue(hasattr(FileStorage, 'all'))
