@@ -1,14 +1,15 @@
 #!/usr/bin/python3
-'''class inherent of BaseModel'''
+'''the comment to be checked 4rerere'''
 from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    '''class city'''
+    '''the comment to be checked 4rewertrer'''
 
     state_id = ""
     name = ""
 
     def __init__(self, *args, **kwargs):
-        """initializes City"""
+        """the comment to be checked 4dfdfdf"""
         super().__init__(*args, **kwargs)
+

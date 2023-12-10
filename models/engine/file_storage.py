@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""file_storage.py module"""
+"""the comment to be checked a"""
 import json
 from models.base_model import BaseModel
 from models.user import User
@@ -12,7 +12,7 @@ from models.state import State
 
 class FileStorage():
     """
-    FileStorage class:
+    the comment to be checked b:
     ------------------
     """
     __file_path = "file.json"
@@ -20,18 +20,18 @@ class FileStorage():
 
     def all(self):
         """
-        public instance method that returns the
-        dictionary __objects.
+        the comment to be checked c
+        the comment to be checked g
         """
         return FileStorage.__objects
 
     def new(self, obj):
         """
-        public instance method that sets in __objects
-        the obj with key <obj class name>.id
-        Variables:
+        the comment to be checked xx
+        the comment to be checked oki
+        sdd:
         ----------
-        key [str] -- key format generated.
+        the comment to be checkeddffdfdf
         """
         if obj:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
@@ -39,11 +39,11 @@ class FileStorage():
 
     def save(self):
         """
-        public instance method that serializes __objects
-        to the JSON file (path: __file_path).
-        Variables:
+        the comment to be checked dfdfd
+        the comment to be checked rgfgfg
+        fggfgs:
         ----------
-        new_dict [dict] -- keys and values to build JSON.
+        nthe comment to be checked
         """
         new_dict = {}
         for key, value in FileStorage.__objects.items():
@@ -53,8 +53,8 @@ class FileStorage():
 
     def reload(self):
         """
-        public instance method that deserializes a JSON
-        file to __objects.
+        the comment to be checked fddfdf
+        the comment to be checkedrtrtrtr
         """
         try:
             with open(FileStorage.__file_path, mode='r') as my_file:
@@ -67,3 +67,4 @@ class FileStorage():
 
         except FileNotFoundError:
             pass
+

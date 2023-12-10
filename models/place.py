@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-'''class inherent of Base Model'''
+'''the comment to be checked 4rtrtrtr'''
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    '''class Place'''
+    '''the comment to be checked 4 rrrrrrrrgd'''
 
     city_id = ""
     user_id = ""
@@ -21,3 +21,4 @@ class Place(BaseModel):
     def __init__(self, *args, **kwargs):
         """initializes Place"""
         super().__init__(*args, **kwargs)
+

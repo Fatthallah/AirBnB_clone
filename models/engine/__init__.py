@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-'''create a unique FileStorage instance for your application'''
+'''ithe comment to be checked an'''
 from models.engine.file_storage import FileStorage
 
-'''A variable storage, an instance of FileStorage'''
+'''A the comment to be checked a'''
 storage = FileStorage()
 storage.reload()

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''module base_model'''
+'''the comment to be checked 6'''
 
 
 import uuid
@@ -8,9 +8,9 @@ import models
 
 
 class BaseModel():
-    '''class BaseModel'''
+    '''the comment to be checked 78'''
     def __init__(self, *args, **kwargs):
-        '''class constructor for class BaseModel'''
+        '''the comment to be checked 48888'''
         if kwargs:
             kwargs['created_at'] = datetime.strptime(kwargs['created_at'],
                                                      '%Y-%m-%dT%H:%M:%S.%f')
@@ -27,19 +27,20 @@ class BaseModel():
             models.storage.new(self)
 
     def __str__(self):
-        '''string of BaseModel instance'''
+        '''the comment to be checked 4fdf'''
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__)
 
     def save(self):
-        '''updates 'updated_at' instance with current datetime'''
+        '''the comment to be checked 4 rttrtrt '''
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        '''dictionary representation of instance'''
+        '''the comment to be checked 4 trtrtrt'''
         new_dict = dict(self.__dict__)
         new_dict['created_at'] = self.__dict__['created_at'].isoformat()
         new_dict['updated_at'] = self.__dict__['updated_at'].isoformat()
         new_dict['__class__'] = self.__class__.__name__
         return (new_dict)
+
