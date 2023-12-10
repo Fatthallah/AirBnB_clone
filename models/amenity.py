@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-'''class inherent of BaseModel'''
+'''the comment to be checked 1'''
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    '''class amenity'''
+    '''the comment to be checked 2'''
 
     name = ""
 
     def __init__(self, *args, **kwargs):
-        """initializes Amenity"""
+        """the comment to be checked 3"""
         super().__init__(*args, **kwargs)
+
