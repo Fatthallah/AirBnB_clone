@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''This is the comment I Have to write'''
+'''Method Command Interpreter'''
 import cmd
 import shlex
 import models
@@ -14,7 +14,6 @@ from models.place import Place
 from models.review import Review
 
 
-
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
     __classes = [
@@ -27,9 +26,10 @@ class HBNBCommand(cmd.Cmd):
         "User"
     ]
 
-
     def do_create(self, args):
-        '''This is the comment I Have to write'''
+        '''Create a new instance of BaseModel, save it and prints the id
+           Usage: create <class name>
+        '''
         args = args.split()
         if len(args) == 0:
             print("** class name missing **")
@@ -40,9 +40,10 @@ class HBNBCommand(cmd.Cmd):
             models.storage.save()
             print(new_creation.id)
 
-
     def do_show(self, args):
-        '''This is the comment I Have to write'''
+        '''Prints the string representation of a specific instance
+           Usage: show <class name> <id>
+        '''
         strings = args.split()
         if len(strings) == 0:
             print("** class name missing **")
@@ -58,12 +59,12 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** no instance found **")
 
-
     def do_destroy(self, args):
-        '''This is the comment I Have to write'''
+        '''Delete an instance
+           Usage: destroy <class name> <id>
+        '''
         args = args.split()
         objects = models.storage.all()
-
 
         if len(args) == 0:
             print('** class name missing **')
@@ -79,13 +80,13 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print('** no instance found **')
 
-
     def do_all(self, args):
-        '''This is the comment I Have to write'''
+        '''Print a string representation of all instances
+           Usage: all <class name>
+        '''
         args = args.split()
         objects = models.storage.all()
         new_list = []
-
 
         if len(args) == 0:
             for obj in objects.values():
@@ -99,12 +100,12 @@ class HBNBCommand(cmd.Cmd):
                     new_list.append(obj.__str__())
             print(new_list)
 
-
     def do_update(self, args):
-        '''This is the comment I Have to write'''
+        '''update an instance
+           Usage update <class name> <id> <attribute name> "<attribute value>"
+        '''
         objects = models.storage.all()
         args = args.split(" ")
-
 
         if len(args) == 0:
             print("** class name missing **")
@@ -120,36 +121,31 @@ class HBNBCommand(cmd.Cmd):
             key_find = args[0] + '.' + args[1]
             obj = objects.get(key_find, None)
 
-
             if not obj:
                 print("** no instance found **")
                 return
 
-
             setattr(obj, args[2], args[3].lstrip('"').rstrip('"'))
             models.storage.save()
 
-
     def check_class_name(self, name=""):
-        '''This is the comment I Have to write'''
+        """Check if stdin user typed class name and id."""
         if len(name) == 0:
             print("** class name missing **")
             return False
         else:
             return True
 
-   
     def check_class_id(self, name=""):
-        '''This is the comment I Have to write'''
+        """Check class id"""
         if len(name.split(' ')) == 1:
             print("** instance id missing **")
             return False
         else:
             return True
 
-
     def found_class_name(self, name=""):
-        '''This is the comment I Have to write'''
+        """Find the name class."""
         if self.check_class_name(name):
             args = shlex.split(name)
             if args[0] in HBNBCommand.__classes:
@@ -160,21 +156,19 @@ class HBNBCommand(cmd.Cmd):
                     print("** class doesn't exist **")
                     return None
 
-
     def do_quit(self, args):
-        '''This is the comment I Have to write'''
+        '''<Quit> Command To Exit The Program'''
         return True
-
 
     def do_EOF(self, args):
-        '''This is the comment I Have to write'''
+        '''Handles end of file'''
         return True
 
-
     def emptyline(self):
-        '''This is the comment I Have to write'''
+        '''dont execute anything when user
+           press enter an empty line
+        '''
         pass
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
